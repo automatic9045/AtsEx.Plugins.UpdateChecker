@@ -8,6 +8,7 @@ using AtsEx.PluginHost.Plugins;
 
 namespace Automatic9045.AtsEx.UpdateChecker
 {
+    /*
     [Plugin(PluginType.MapPlugin)]
     internal class MapPluginMain : AssemblyPluginBase
     {
@@ -25,4 +26,5 @@ namespace Automatic9045.AtsEx.UpdateChecker
             return new MapPluginTickResult();
         }
     }
+    */
 }

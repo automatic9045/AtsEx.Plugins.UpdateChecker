@@ -96,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorParser.cs" />
     <Compile Include="Data\Config.cs" />
     <Compile Include="Data\ConfigSerializer.cs" />
     <Compile Include="Data\GitHubRepository.cs" />

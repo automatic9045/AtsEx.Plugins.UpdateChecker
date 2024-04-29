@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Automatic9045.AtsEx.UpdateChecker.Data;
+
 namespace Automatic9045.AtsEx.UpdateChecker.Hosting
 {
     internal partial class UpdateInfoDialog : Form
@@ -178,7 +180,15 @@ namespace Automatic9045.AtsEx.UpdateChecker.Hosting
                 {
                     float scale = g.DpiX / 96f;
 
-                    using (LinearGradientBrush brush = new LinearGradientBrush(g.VisibleClipBounds, Color.Black, Color.FromArgb(0, 0, 0xA0), LinearGradientMode.Horizontal)
+                    Color themeColor = ColorParser.Parse(Config.Instance.ThemeColor);
+                    bool isColorNotFound = false;
+                    if (themeColor.A + themeColor.R + themeColor.G + themeColor.B == 0)
+                    {
+                        isColorNotFound = true;
+                        themeColor = Color.Black;
+                    }
+
+                    using (LinearGradientBrush brush = new LinearGradientBrush(g.VisibleClipBounds, Color.Black, themeColor, LinearGradientMode.Horizontal)
                     {
                         GammaCorrection = true,
                     })
@@ -186,10 +196,27 @@ namespace Automatic9045.AtsEx.UpdateChecker.Hosting
                         g.FillRectangle(brush, g.VisibleClipBounds);
                     }
 
+                    int x = (int)g.VisibleClipBounds.Width;
+                    int y = (int)g.VisibleClipBounds.Height;
+                    StringFormat stringFormat = new StringFormat()
+                    {
+                        Alignment = StringAlignment.Far,
+                        LineAlignment = StringAlignment.Far,
+                    };
+
                     using (SolidBrush brush = new SolidBrush(Color.FromArgb(64, Color.Black)))
                     {
                         Font logoFont = new Font(Font.FontFamily, 50 / scale, FontStyle.Bold);
-                        g.DrawString("UpdateChecker", logoFont, brush, new Point((int)g.VisibleClipBounds.Width - 490, 5));
+                        g.DrawString("UpdateChecker", logoFont, brush, new Point(x, y + 23), stringFormat);
+                    }
+
+                    if (isColorNotFound)
+                    {
+                        using (SolidBrush brush = new SolidBrush(Color.Yellow))
+                        {
+                            Font errorFont = new Font(Font.FontFamily, 10 / scale, FontStyle.Bold);
+                            g.DrawString($"⚠️色 '{Config.Instance.ThemeColor}' が見つかりませんでした", errorFont, brush, new Point(x - 5, y), stringFormat);
+                        }
                     }
                 }
 

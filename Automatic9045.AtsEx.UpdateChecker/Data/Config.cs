@@ -32,6 +32,7 @@ namespace Automatic9045.AtsEx.UpdateChecker.Data
 
 
         public string Version = "0.0";
+        public string ThemeColor = "#0000A0";
         public string DownloadUrl = UrlRoot + "/";
         public long StopNotifyUntil = 0;
 

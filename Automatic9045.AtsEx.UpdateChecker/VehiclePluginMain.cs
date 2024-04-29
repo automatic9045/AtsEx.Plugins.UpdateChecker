@@ -8,6 +8,7 @@ using AtsEx.PluginHost.Plugins;
 
 namespace Automatic9045.AtsEx.UpdateChecker
 {
+    /*
     [Plugin(PluginType.VehiclePlugin)]
     internal class VehiclePluginMain : AssemblyPluginBase
     {
@@ -25,4 +26,5 @@ namespace Automatic9045.AtsEx.UpdateChecker
             return new VehiclePluginTickResult();
         }
     }
+    */
 }

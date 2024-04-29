@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下を通して制御されます
 // 制御されます。アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("UpdateChecker")]
-[assembly: AssemblyDescription("車両・路線データのアップデート情報を取得・通知します。")]
+[assembly: AssemblyTitle("UpdateChecker 車両プラグイン版")]
+[assembly: AssemblyDescription("車両データのアップデート情報を取得・通知します。")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("automatic9045")]
 [assembly: AssemblyProduct("AtsEX プラグイン")]
